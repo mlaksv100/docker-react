@@ -9,5 +9,7 @@ COPY . .
 RUN npm run build
 
 FROM nginx
+#Aws looks for this to open the port for traffic. 
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 
